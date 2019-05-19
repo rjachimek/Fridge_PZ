@@ -20,7 +20,14 @@ namespace FridgePZ.Controllers
             _context = context;
         }
 
-        
+        public async Task<IActionResult> Index()
+        {
+            
+            List<Item> fridgepzContext = returnUserItems();
+            return View(fridgepzContext);
+
+        }
+
         private bool ItemExists(int id)
         {
             return _context.Item.Any(e => e.ItemId == id);
@@ -63,6 +70,21 @@ namespace FridgePZ.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+        }
+
+
+        public List<Item> returnUserItems()
+        {
+            User cur_user = returnUser();
+            var query = from _item in _context.Item
+                        join _shelf in _context.Shelf on _item.ShelfId equals _shelf.ShelfId
+                        join _storage in _context.Storage on _shelf.StorageId equals _storage.StorageId
+                        join _privilege in _context.Privilege on _storage.StorageId equals _privilege.StorageId
+                        join _user in _context.User on _privilege.UserId equals _user.UserId
+                        where cur_user.UserId == _user.UserId
+                        select _item;
+            List<Item> item = query.ToList();
+            return item;
         }
 
         public List<Item> returnItems()
@@ -120,6 +142,37 @@ namespace FridgePZ.Controllers
                     }
                 }
             }
+        }
+
+
+        public async Task<IActionResult> Decrease(int? id)
+        {
+            decreasePortion(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        public async void decreasePortion(int? id)
+        {
+            Item cur_item = _context.Item.Find(id);
+            Itempattern pat = await _context.Itempattern.FindAsync(cur_item.ItemPatternId);
+            if (cur_item.HowMuchLeft - 125 >= 0)
+            {
+                cur_item.HowMuchLeft -= 125;
+                if(cur_item.HowMuchLeft == 0)
+                {
+                    var _item = await _context.Item.FindAsync(cur_item.ItemId);
+                    _context.Item.Remove(_item);
+                }
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                var _item = await _context.Item.FindAsync(cur_item.ItemId);
+                _context.Item.Remove(_item);
+                await _context.SaveChangesAsync();
+            }
+          
         }
     }
 }

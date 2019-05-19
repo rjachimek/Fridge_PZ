@@ -13,12 +13,12 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
-#line 1 "C:\Users\LENOVO\Desktop\Nowy folder (16)\Fridge_PZ\FridgePZ\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\Lenovo\Documents\FridgeWspolne\Main\Fridge_PZ\FridgePZ\Views\_ViewImports.cshtml"
 using FridgePZ;
 
 #line default
 #line hidden
-#line 2 "C:\Users\LENOVO\Desktop\Nowy folder (16)\Fridge_PZ\FridgePZ\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\Lenovo\Documents\FridgeWspolne\Main\Fridge_PZ\FridgePZ\Views\_ViewImports.cshtml"
 using FridgePZ.Models;
 
 #line default
@@ -30,7 +30,6 @@ using FridgePZ.Models;
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Details", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_3 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Delete", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         #line hidden
         #pragma warning disable 0169
         private string __tagHelperStringValueBuffer;
@@ -56,7 +55,7 @@ using FridgePZ.Models;
             BeginContext(49, 2, true);
             WriteLiteral("\r\n");
             EndContext();
-#line 3 "C:\Users\LENOVO\Desktop\Nowy folder (16)\Fridge_PZ\FridgePZ\Views\Itempatterns\Index.cshtml"
+#line 3 "C:\Users\Lenovo\Documents\FridgeWspolne\Main\Fridge_PZ\FridgePZ\Views\Itempatterns\Index.cshtml"
   
     ViewData["Title"] = "Index";
 
@@ -335,16 +334,6 @@ WriteAttributeValue("", 3212, Html.DisplayFor(modelItem => item.PhotoName), 3212
 
 #line default
 #line hidden
-            __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"] = __tagHelperStringValueBuffer;
-            __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-id", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
             EndContext();
             BeginContext(3699, 68, true);
             WriteLiteral("\r\n                            </td>\r\n                        </tr>\r\n");
