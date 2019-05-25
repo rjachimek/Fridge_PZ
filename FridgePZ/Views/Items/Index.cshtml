@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create"><button type="button" class="btn btn-secondary btn-info">Dodaj nowy produkt</button></a>
 </p>
 <table class="table">
     <thead>
@@ -69,8 +69,12 @@
                 @only_date
             </td>
             <td>
+                <div class="btn-group" role="group" aria-label="Decrease">
+                    <a asp-action="Decrease" asp-route-id="@item.ItemId"><button type="button" class="btn btn-secondary btn-info">-</button></a>
+
+                </div>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <a asp-action="Decrease" asp-route-id="@item.ItemId"><button type="button" class="btn btn-secondary btn-danger">-</button></a>
+                    <a asp-action="Delete" asp-route-id="@item.ItemId"><button type="button" class="btn btn-secondary btn-danger">Usuń</button></a>
 
                 </div>
             </td>

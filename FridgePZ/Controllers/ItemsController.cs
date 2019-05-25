@@ -72,6 +72,61 @@ namespace FridgePZ.Controllers
             }
         }
 
+        public async Task<IActionResult> Create()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> CreateNabial()
+        {
+            var itempattern = from _i in _context.Itempattern
+                              where _i.CategoryItemPatternId == 1
+                              select _i;
+
+            return View(await itempattern.ToListAsync());
+        }
+
+        public async Task<IActionResult> CreateItem(int ?id)
+        {
+            
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Decrease(int? id)
+        {
+            decreasePortion(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            Item cur_item = _context.Item.Find(id);
+            var _item = await _context.Item.FindAsync(cur_item.ItemId);
+            _context.Item.Remove(_item);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async void decreasePortion(int? id)
+        {
+            Item cur_item = _context.Item.Find(id);
+            Itempattern pat = await _context.Itempattern.FindAsync(cur_item.ItemPatternId);
+            if (cur_item.HowMuchLeft - 125 >= 0)
+            {
+                cur_item.HowMuchLeft -= 125;
+                if (cur_item.HowMuchLeft == 0)
+                {
+                    var _item = await _context.Item.FindAsync(cur_item.ItemId);
+                    _context.Item.Remove(_item);
+                }
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                var _item = await _context.Item.FindAsync(cur_item.ItemId);
+                _context.Item.Remove(_item);
+                await _context.SaveChangesAsync();
+            }
+        }
 
         public List<Item> returnUserItems()
         {
@@ -145,34 +200,6 @@ namespace FridgePZ.Controllers
         }
 
 
-        public async Task<IActionResult> Decrease(int? id)
-        {
-            decreasePortion(id);
-            return RedirectToAction(nameof(Index));
-        }
-
-
-        public async void decreasePortion(int? id)
-        {
-            Item cur_item = _context.Item.Find(id);
-            Itempattern pat = await _context.Itempattern.FindAsync(cur_item.ItemPatternId);
-            if (cur_item.HowMuchLeft - 125 >= 0)
-            {
-                cur_item.HowMuchLeft -= 125;
-                if(cur_item.HowMuchLeft == 0)
-                {
-                    var _item = await _context.Item.FindAsync(cur_item.ItemId);
-                    _context.Item.Remove(_item);
-                }
-                await _context.SaveChangesAsync();
-            }
-            else
-            {
-                var _item = await _context.Item.FindAsync(cur_item.ItemId);
-                _context.Item.Remove(_item);
-                await _context.SaveChangesAsync();
-            }
-          
-        }
+        
     }
 }

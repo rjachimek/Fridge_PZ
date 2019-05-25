@@ -1105,7 +1105,7 @@
         this._isTransitioning = false;
         this._element = element;
         this._config = this._getConfig(config);
-        this._triggerArray = $$$1.makeArray(document.querySelectorAll("[data-toggle=\"collapse\"][href=\"#" + element.id + "\"]," + ("[data-toggle=\"collapse\"][data-target=\"#" + element.id + "\"]")));
+        this._triggerArray = $$$1.makeArray(document.querySelectorAll("[data-toggle=\"collapse\"][asp-action="CreateItem" asp-route-index=""\"#" + element.id + "\"]," + ("[data-toggle=\"collapse\"][data-target=\"#" + element.id + "\"]")));
         var toggleList = [].slice.call(document.querySelectorAll(Selector.DATA_TOGGLE));
 
         for (var i = 0, len = toggleList.length; i < len; i++) {
@@ -3556,7 +3556,7 @@
 
 
         queries = queries.map(function (selector) {
-          return selector + "[data-target=\"" + target + "\"]," + (selector + "[href=\"" + target + "\"]");
+          return selector + "[data-target=\"" + target + "\"]," + (selector + "[asp-action="CreateItem" asp-route-index=""\"" + target + "\"]");
         });
         var $link = $$$1([].slice.call(document.querySelectorAll(queries.join(','))));
 
