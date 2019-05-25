@@ -86,9 +86,25 @@ namespace FridgePZ.Controllers
             return View(await itempattern.ToListAsync());
         }
 
-        public async Task<IActionResult> CreateItem(int ?id)
+        public async Task<IActionResult> CreateItem(int? id)
         {
-            
+            if(returnUser() == null) { return RedirectToAction("Login", "Account"); }
+            Itempattern _i = await _context.Itempattern.FindAsync(id);
+            List<Shelf> _s = returnUserShelfs();
+            if (_s.Last() == null) { return RedirectToAction(nameof(Index)); }
+            Item item = new Item();
+            item.ItemPatternId = id??default;
+            DateTime itemTime = DateTime.Now;
+            decimal days = Convert.ToDecimal(_i.LongLife);
+            double elapsed = (double)days;
+            itemTime.AddDays(elapsed);
+            item.ExpirationDate = itemTime;
+            item.NotificationId = null;
+            item.HowMuchLeft = _i.Size;
+            item.ShelfId = _s.First().ShelfId;
+            item.IsOpen = 0;
+            _context.Add(item);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
@@ -140,6 +156,19 @@ namespace FridgePZ.Controllers
                         select _item;
             List<Item> item = query.ToList();
             return item;
+        }
+
+        public List<Shelf> returnUserShelfs()
+        {
+            User cur_user = returnUser();
+            var query = from _shelf in _context.Shelf
+                        join _storage in _context.Storage on _shelf.StorageId equals _storage.StorageId
+                        join _privilege in _context.Privilege on _storage.StorageId equals _privilege.StorageId
+                        join _user in _context.User on _privilege.UserId equals _user.UserId
+                        where cur_user.UserId == _user.UserId
+                        select _shelf;
+            List<Shelf> shelf = query.ToList();
+            return shelf;
         }
 
         public List<Item> returnItems()
