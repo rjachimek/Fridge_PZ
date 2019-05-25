@@ -86,6 +86,15 @@ namespace FridgePZ.Controllers
             return View(await itempattern.ToListAsync());
         }
 
+        public async Task<IActionResult> CreatePieczywo()
+        {
+            var itempattern = from _i in _context.Itempattern
+                              where _i.CategoryItemPatternId == 4
+                              select _i;
+
+            return View(await itempattern.ToListAsync());
+        }
+
         public async Task<IActionResult> CreateItem(int? id)
         {
             if(returnUser() == null) { return RedirectToAction("Login", "Account"); }
@@ -97,7 +106,7 @@ namespace FridgePZ.Controllers
             DateTime itemTime = DateTime.Now;
             decimal days = Convert.ToDecimal(_i.LongLife);
             double elapsed = (double)days;
-            itemTime.AddDays(elapsed);
+            itemTime = itemTime.AddDays(elapsed);
             item.ExpirationDate = itemTime;
             item.NotificationId = null;
             item.HowMuchLeft = _i.Size;
@@ -119,6 +128,7 @@ namespace FridgePZ.Controllers
             Item cur_item = _context.Item.Find(id);
             var _item = await _context.Item.FindAsync(cur_item.ItemId);
             _context.Item.Remove(_item);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
