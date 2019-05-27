@@ -344,3 +344,6 @@ C:\Users\Maric\Desktop\Nowy folder (11)\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2
 C:\Users\Maric\Desktop\Nowy folder (11)\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.dll
 C:\Users\Maric\Desktop\Nowy folder (11)\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.pdb
 C:\Users\Maric\Desktop\Nowy folder (11)\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.csproj.CopyComplete
+C:\Users\Maric\Desktop\Nowy folder (11)\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\Razor\Views\Items\Create.g.cshtml.cs
+C:\Users\Maric\Desktop\Nowy folder (11)\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\Razor\Views\Items\Delete.g.cshtml.cs
+C:\Users\Maric\Desktop\Nowy folder (11)\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\Razor\Views\Items\Edit.g.cshtml.cs

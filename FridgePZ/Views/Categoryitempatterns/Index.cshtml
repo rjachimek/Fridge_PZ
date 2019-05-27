@@ -14,38 +14,38 @@
         <table data-vertable="ver5" width: 100%>
             <thead>
                 <tr class="row100 head">
-                    <th>
+                    <th class="column100 column2" data-column="column2>
                         @Html.DisplayNameFor(model => model.Name)
                     </th>
-                    <th>
+                    <th class="column100 column2" data-column="column2>
                         @Html.DisplayNameFor(model => model.Type)
                     </th>
-                    <th>
+                    <th class="column100 column3" data-column="column3>
                         @Html.DisplayNameFor(model => model.CurrentQuantity)
                     </th>
-                    <th>
+                    <th class="column100 column4" data-column="column4>
                         @Html.DisplayNameFor(model => model.ExpectedQuantity)
                     </th>
-                    <th></th>
+                    <th class="column100 column5" data-column="column5 ></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr class="row100">
-                        <td>
+                        <td class="column100 column2" data-column="column2">
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
-                        <td>
+                        <td class="column100 column2" data-column="column2">
                             @Html.DisplayFor(modelItem => item.Type)
                         </td>
-                        <td>
+                        <td class="column100 column3" data-column="column2">
                             @Html.DisplayFor(modelItem => item.CurrentQuantity)
                         </td>
-                        <td>
+                        <td class="column100 column4" data-column="column2">
                             @Html.DisplayFor(modelItem => item.ExpectedQuantity)
                         </td>
-                        <td>
+                        <td class="column100 column5" data-column="column5">
                             <a asp-action="Edit" asp-route-id="@item.CategoryItemPatternId">Edit</a> |
                             <a asp-action="Details" asp-route-id="@item.CategoryItemPatternId">Details</a> |
                             <a asp-action="Delete" asp-route-id="@item.CategoryItemPatternId">Delete</a>
