@@ -14,28 +14,28 @@
         <table data-vertable="ver5" width: 100%>
             <thead>
                 <tr class="row100 head">
-                    <th>
+                    <th class="column100 column2" data-column="column2>
                         BarCode
                     </th>
-                    <th>
+                    <th class="column100 column2" data-column="column2>
                         Measure Unit
                     </th>
-                    <th>
+                    <th class="column100 column3" data-column="column3>
                         How much left
                     </th>
-                    <th>
+                    <th class="column100 column4" data-column="column4>
                         Name
                     </th>
-                    <th>
+                    <th class="column100 column5" data-column="column5>
                         CategoryItemPattern
                     </th>
-                    <th>
+                    <th class="column100 column6" data-column="column6>
                         Photo
                     </th>
-                    <th>
+                    <th class="column100 column7" data-column="column7>
                         Expiration date
-                    </th>
-                    <th>
+                    </th >
+                    <th class="column100 column8" data-column="column8>
                         Actions
                     </th>
                 </tr>
@@ -50,28 +50,28 @@
                     DateTime date = item.ExpirationDate ?? DateTime.Now;
                     String only_date = date.ToString("dd/MM/yyyy");
                     <tr>
-                        <td>
+                        <td class="column100 column2" data-column="column2">
                             @pat.BarCode
                         </td>
-                        <td>
+                        <td class="column100 column2" data-column="column2">
                             @pat.Unit
                         </td>
-                        <td>
+                        <td class="column100 column3" data-column="column3">
                             @item.HowMuchLeft
                         </td>
-                        <td>
+                        <td class="column100 column4" data-column="column4">
                             @pat.Name
                         </td>
-                        <td>
+                        <td class="column100 column5" data-column="column5">
                             @cat.Name
                         </td>
-                        <td>
+                        <td class="column100 column6" data-column="column6">
                             <img src="/images/@pat.PhotoName" width="60" />
                         </td>
-                        <td>
+                        <td class="column100 column7" data-column="column7">
                             @only_date
                         </td>
-                        <td>
+                        <td class="column100 column2" data-column="column2">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a asp-action="Decrease" asp-route-id="@item.ItemId"><button type="button" class="btn btn-secondary btn-danger">-</button></a>
 
