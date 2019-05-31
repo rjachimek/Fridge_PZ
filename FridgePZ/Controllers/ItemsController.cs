@@ -239,6 +239,165 @@ namespace FridgePZ.Controllers
         }
 
 
-        
+        public async Task<IActionResult> Decrease(int? id)
+        {
+            decreasePortion(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        public async void decreasePortion(int? id)
+        {
+            Item cur_item = _context.Item.Find(id);
+            Itempattern pat = await _context.Itempattern.FindAsync(cur_item.ItemPatternId);
+            if (cur_item.HowMuchLeft - 125 >= 0)
+            {
+                cur_item.HowMuchLeft -= 125;
+                if(cur_item.HowMuchLeft == 0)
+                {
+                    var _item = await _context.Item.FindAsync(cur_item.ItemId);
+                    _context.Item.Remove(_item);
+                }
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                var _item = await _context.Item.FindAsync(cur_item.ItemId);
+                _context.Item.Remove(_item);
+                await _context.SaveChangesAsync();
+            }
+          
+        }
+
+
+        public IActionResult Create()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+
+                String email = User.Identity.Name;
+                fridgepzContext db = new fridgepzContext();
+                var query = from p in db.User where p.Email.Equals(email) select p;
+                User user = query.Single();
+                ViewData["ItemPatternId"] = new SelectList(_context.Itempattern, "ItemPatternId", "ItemPatternId");
+                ViewData["NotificationId"] = new SelectList(_context.Notificationtype, "NotificationId", "Type");
+                ViewData["ShelfId"] = new SelectList(_context.Shelf, "ShelfId", "Name");
+
+            }
+
+            return View();
+        }
+
+        // POST: Items1/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("ItemId,ShelfId,ItemPatternId,NotificationId,HowMuchLeft,ExpirationDate,IsOpen")] Item item)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(item);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["ItemPatternId"] = new SelectList(_context.Itempattern, "ItemPatternId", "ItemPatternId", item.ItemPatternId);
+            ViewData["NotificationId"] = new SelectList(_context.Notificationtype, "NotificationId", "Type", item.NotificationId);
+            ViewData["ShelfId"] = new SelectList(_context.Shelf, "ShelfId", "Name", item.ShelfId);
+            return View(item);
+        }
+
+        // GET: Items1/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var item = await _context.Item.FindAsync(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            ViewData["ItemPatternId"] = new SelectList(_context.Itempattern, "ItemPatternId", "ItemPatternId", item.ItemPatternId);
+            ViewData["NotificationId"] = new SelectList(_context.Notificationtype, "NotificationId", "Type", item.NotificationId);
+            ViewData["ShelfId"] = new SelectList(_context.Shelf, "ShelfId", "Name", item.ShelfId);
+            return View(item);
+        }
+
+        // POST: Items1/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("ItemId,ShelfId,ItemPatternId,NotificationId,HowMuchLeft,ExpirationDate,IsOpen")] Item item)
+        {
+            if (id != item.ItemId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(item);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ItemExists(item.ItemId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["ItemPatternId"] = new SelectList(_context.Itempattern, "ItemPatternId", "ItemPatternId", item.ItemPatternId);
+            ViewData["NotificationId"] = new SelectList(_context.Notificationtype, "NotificationId", "Type", item.NotificationId);
+            ViewData["ShelfId"] = new SelectList(_context.Shelf, "ShelfId", "Name", item.ShelfId);
+            return View(item);
+        }
+
+        // GET: Items1/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var item = await _context.Item
+                .Include(i => i.ItemPattern)
+                .Include(i => i.Notification)
+                .Include(i => i.Shelf)
+                .FirstOrDefaultAsync(m => m.ItemId == id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            return View(item);
+        }
+
+        // POST: Items1/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var item = await _context.Item.FindAsync(id);
+            _context.Item.Remove(item);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
+
+
 }
+

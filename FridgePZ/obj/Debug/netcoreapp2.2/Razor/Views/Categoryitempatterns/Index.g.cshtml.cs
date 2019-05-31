@@ -23,14 +23,11 @@ using FridgePZ.Models;
 
 #line default
 #line hidden
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"236284213c005cb7f4e62d9ac868c59f9e73991d", @"/Views/Categoryitempatterns/Index.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f60b218cd5a62db689fa300fe04f64787e5641f9", @"/Views/Categoryitempatterns/Index.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"35637e76b85c4316bc78e95a1bdf0b6192c624e2", @"/Views/_ViewImports.cshtml")]
     public class Views_Categoryitempatterns_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<FridgePZ.Models.Categoryitempattern>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Details", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_3 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Delete", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         #line hidden
         #pragma warning disable 0169
         private string __tagHelperStringValueBuffer;
@@ -84,8 +81,16 @@ using FridgePZ.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             EndContext();
-            BeginContext(166, 92, true);
-            WriteLiteral("\r\n</p>\r\n<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            <th>\r\n                ");
+            BeginContext(166, 282, true);
+            WriteLiteral(@"
+</p>
+<div class=""limiter"">
+    <div class=""table100 ver5 m-b-110"">
+        <table data-vertable=""ver5"" width: 100%>
+            <thead>
+                <tr class=""row100 head"">
+                    <th class=""column100 column2"" data-column=""column2>
+                        ");
             EndContext();
             BeginContext(259, 40, false);
 #line 16 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
@@ -94,8 +99,8 @@ using FridgePZ.Models;
 #line default
 #line hidden
             EndContext();
-            BeginContext(299, 55, true);
-            WriteLiteral("\r\n            </th>\r\n            <th>\r\n                ");
+            BeginContext(489, 126, true);
+            WriteLiteral("\r\n                    </th>\r\n                    <th class=\"column100 column2\" data-column=\"column2>\r\n                        ");
             EndContext();
             BeginContext(355, 40, false);
 #line 19 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
@@ -104,8 +109,8 @@ using FridgePZ.Models;
 #line default
 #line hidden
             EndContext();
-            BeginContext(395, 55, true);
-            WriteLiteral("\r\n            </th>\r\n            <th>\r\n                ");
+            BeginContext(656, 126, true);
+            WriteLiteral("\r\n                    </th>\r\n                    <th class=\"column100 column3\" data-column=\"column3>\r\n                        ");
             EndContext();
             BeginContext(451, 51, false);
 #line 22 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
@@ -114,8 +119,8 @@ using FridgePZ.Models;
 #line default
 #line hidden
             EndContext();
-            BeginContext(502, 55, true);
-            WriteLiteral("\r\n            </th>\r\n            <th>\r\n                ");
+            BeginContext(834, 126, true);
+            WriteLiteral("\r\n                    </th>\r\n                    <th class=\"column100 column4\" data-column=\"column4>\r\n                        ");
             EndContext();
             BeginContext(558, 52, false);
 #line 25 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
@@ -124,8 +129,8 @@ using FridgePZ.Models;
 #line default
 #line hidden
             EndContext();
-            BeginContext(610, 55, true);
-            WriteLiteral("\r\n            </th>\r\n            <th>\r\n                ");
+            BeginContext(1013, 174, true);
+            WriteLiteral("\r\n                    </th>\r\n                    <th class=\"column100 column5\" data-column=\"column5 ></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n");
             EndContext();
             BeginContext(666, 52, false);
 #line 28 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
@@ -162,8 +167,8 @@ using FridgePZ.Models;
 
 #line default
 #line hidden
-            BeginContext(1039, 48, true);
-            WriteLiteral("        <tr>\r\n            <td>\r\n                ");
+            BeginContext(1252, 147, true);
+            WriteLiteral("                    <tr class=\"row100\">\r\n                        <td class=\"column100 column2\" data-column=\"column2\">\r\n                            ");
             EndContext();
             BeginContext(1088, 39, false);
 #line 43 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
@@ -172,8 +177,8 @@ using FridgePZ.Models;
 #line default
 #line hidden
             EndContext();
-            BeginContext(1127, 55, true);
-            WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
+            BeginContext(1439, 139, true);
+            WriteLiteral("\r\n                        </td>\r\n                        <td class=\"column100 column2\" data-column=\"column2\">\r\n                            ");
             EndContext();
             BeginContext(1183, 39, false);
 #line 46 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
@@ -182,8 +187,8 @@ using FridgePZ.Models;
 #line default
 #line hidden
             EndContext();
-            BeginContext(1222, 55, true);
-            WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
+            BeginContext(1618, 139, true);
+            WriteLiteral("\r\n                        </td>\r\n                        <td class=\"column100 column3\" data-column=\"column2\">\r\n                            ");
             EndContext();
             BeginContext(1278, 50, false);
 #line 49 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
@@ -192,8 +197,8 @@ using FridgePZ.Models;
 #line default
 #line hidden
             EndContext();
-            BeginContext(1328, 55, true);
-            WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
+            BeginContext(1808, 139, true);
+            WriteLiteral("\r\n                        </td>\r\n                        <td class=\"column100 column4\" data-column=\"column2\">\r\n                            ");
             EndContext();
             BeginContext(1384, 51, false);
 #line 52 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
@@ -202,8 +207,8 @@ using FridgePZ.Models;
 #line default
 #line hidden
             EndContext();
-            BeginContext(1435, 55, true);
-            WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
+            BeginContext(1999, 159, true);
+            WriteLiteral("\r\n                        </td>\r\n                        <td class=\"column100 column5\" data-column=\"column5\">\r\n                            <a asp-action=\"Edit\"");
             EndContext();
             BeginContext(1491, 51, false);
 #line 55 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
@@ -211,6 +216,9 @@ using FridgePZ.Models;
 
 #line default
 #line hidden
+            EndWriteAttribute();
+            BeginContext(2201, 64, true);
+            WriteLiteral(">Edit</a> |\r\n                            <a asp-action=\"Details\"");
             EndContext();
             BeginContext(1542, 55, true);
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
@@ -221,6 +229,9 @@ using FridgePZ.Models;
 
 #line default
 #line hidden
+            EndWriteAttribute();
+            BeginContext(2308, 66, true);
+            WriteLiteral(">Details</a> |\r\n                            <a asp-action=\"Delete\"");
             EndContext();
             BeginContext(1650, 55, true);
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
@@ -231,6 +242,9 @@ using FridgePZ.Models;
 
 #line default
 #line hidden
+            EndWriteAttribute();
+            BeginContext(2417, 71, true);
+            WriteLiteral(">Delete</a>\r\n                        </td>\r\n                    </tr>\r\n");
             EndContext();
             BeginContext(1753, 55, true);
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
@@ -343,10 +357,16 @@ using FridgePZ.Models;
 #line 69 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Categoryitempatterns\Index.cshtml"
 }
 
-#line default
-#line hidden
-            BeginContext(2113, 24, true);
-            WriteLiteral("    </tbody>\r\n</table>\r\n");
+<!--===============================================================================================-->
+<script src=""vendor/jquery/jquery-3.2.1.min.js""></script>
+<!--===============================================================================================-->
+<script src=""vendor/bootstrap/js/popper.js""></script>
+<script src=""vendor/bootstrap/js/bootstrap.min.js""></script>
+<!--===============================================================================================-->
+<script src=""vendor/select2/select2.min.js""></script>
+<!--===============================================================================================-->
+<script src=""js/main.js""></script>
+");
             EndContext();
         }
         #pragma warning restore 1998

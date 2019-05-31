@@ -9,77 +9,90 @@
 <p>
     <a asp-action="Create"><button type="button" class="btn btn-secondary btn-info">Dodaj nowy produkt</button></a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                BarCode
-            </th>
-            <th>
-                Measure Unit
-            </th>
-            <th>
-                How much left
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                CategoryItemPattern
-            </th>
-            <th>
-                Photo
-            </th>
-            <th>
-                Expiration date
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
+<div class="limiter">
+    <div class="table100 ver5 m-b-110">
+        <table data-vertable="ver5" width: 100%>
+            <thead>
+                <tr class="row100 head">
+                    <th class="column100 column2" data-column="column2>
+                        BarCode
+                    </th>
+                    <th class="column100 column2" data-column="column2>
+                        Measure Unit
+                    </th>
+                    <th class="column100 column3" data-column="column3>
+                        How much left
+                    </th>
+                    <th class="column100 column4" data-column="column4>
+                        Name
+                    </th>
+                    <th class="column100 column5" data-column="column5>
+                        CategoryItemPattern
+                    </th>
+                    <th class="column100 column6" data-column="column6>
+                        Photo
+                    </th>
+                    <th class="column100 column7" data-column="column7>
+                        Expiration date
+                    </th >
+                    <th class="column100 column8" data-column="column8>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
 
-    fridgepzContext _context = new fridgepzContext();
-    Itempattern pat = await _context.Itempattern.FindAsync(item.ItemPatternId);
-    Categoryitempattern cat = await _context.Categoryitempattern.FindAsync(pat.CategoryItemPatternId);
-    DateTime date = item.ExpirationDate ?? DateTime.Now;
-    String only_date = date.ToString("dd/MM/yyyy");
-        <tr>
-            <td>
-                @pat.BarCode
-            </td>
-            <td>
-                @pat.Unit
-            </td>
-            <td>
-                @item.HowMuchLeft
-            </td>
-            <td>
-                @pat.Name
-            </td>
-            <td>
-                @cat.Name
-            </td>
-            <td>
-                <img src="/images/@pat.PhotoName" width="60" />
-            </td>
-            <td>
-                @only_date
-            </td>
-            <td>
-                <div class="btn-group" role="group" aria-label="Decrease">
-                    <a asp-action="Decrease" asp-route-id="@item.ItemId"><button type="button" class="btn btn-secondary btn-info">-</button></a>
-
-                </div>
-                <div class="btn-group" role="group" aria-label="Basic example">
+                    fridgepzContext _context = new fridgepzContext();
+                    Itempattern pat = await _context.Itempattern.FindAsync(item.ItemPatternId);
+                    Categoryitempattern cat = await _context.Categoryitempattern.FindAsync(pat.CategoryItemPatternId);
+                    DateTime date = item.ExpirationDate ?? DateTime.Now;
+                    String only_date = date.ToString("dd/MM/yyyy");
+                    <tr>
+                        <td class="column100 column2" data-column="column2">
+                            @pat.BarCode
+                        </td>
+                        <td class="column100 column2" data-column="column2">
+                            @pat.Unit
+                        </td>
+                        <td class="column100 column3" data-column="column3">
+                            @item.HowMuchLeft
+                        </td>
+                        <td class="column100 column4" data-column="column4">
+                            @pat.Name
+                        </td>
+                        <td class="column100 column5" data-column="column5">
+                            @cat.Name
+                        </td>
+                        <td class="column100 column6" data-column="column6">
+                            <img src="/images/@pat.PhotoName" width="60" />
+                        </td>
+                        <td class="column100 column7" data-column="column7">
+                            @only_date
+                        </td>
+                        <td class="column100 column2" data-column="column2">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a asp-action="Decrease" asp-route-id="@item.ItemId"><button type="button" class="btn btn-secondary btn-danger">-</button></a>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Basic example">
                     <a asp-action="Delete" asp-route-id="@item.ItemId"><button type="button" class="btn btn-secondary btn-danger">Usuń</button></a>
+                            </div>
+                        </td>
 
-                </div>
-            </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
-        </tr>
-}
-    </tbody>
-</table>
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>

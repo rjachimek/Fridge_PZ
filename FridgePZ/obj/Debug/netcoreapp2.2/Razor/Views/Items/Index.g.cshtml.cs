@@ -86,46 +86,48 @@ using FridgePZ.Models;
             BeginContext(225, 622, true);
             WriteLiteral(@"
 </p>
-<table class=""table"">
-    <thead>
-        <tr>
-            <th>
-                BarCode
-            </th>
-            <th>
-                Measure Unit
-            </th>
-            <th>
-                How much left
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                CategoryItemPattern
-            </th>
-            <th>
-                Photo
-            </th>
-            <th>
-                Expiration date
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-    </thead>
-    <tbody>
+<div class=""limiter"">
+    <div class=""table100 ver5 m-b-110"">
+        <table data-vertable=""ver5"" width: 100%>
+            <thead>
+                <tr class=""row100 head"">
+                    <th>
+                        BarCode
+                    </th>
+                    <th>
+                        Measure Unit
+                    </th>
+                    <th>
+                        How much left
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        CategoryItemPattern
+                    </th>
+                    <th>
+                        Photo
+                    </th>
+                    <th>
+                        Expiration date
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
 ");
             EndContext();
 #line 42 "C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\Views\Items\Index.cshtml"
  foreach (var item in Model) {
 
-    fridgepzContext _context = new fridgepzContext();
-    Itempattern pat = await _context.Itempattern.FindAsync(item.ItemPatternId);
-    Categoryitempattern cat = await _context.Categoryitempattern.FindAsync(pat.CategoryItemPatternId);
-    DateTime date = item.ExpirationDate ?? DateTime.Now;
-    String only_date = date.ToString("dd/MM/yyyy");
+                    fridgepzContext _context = new fridgepzContext();
+                    Itempattern pat = await _context.Itempattern.FindAsync(item.ItemPatternId);
+                    Categoryitempattern cat = await _context.Categoryitempattern.FindAsync(pat.CategoryItemPatternId);
+                    DateTime date = item.ExpirationDate ?? DateTime.Now;
+                    String only_date = date.ToString("dd/MM/yyyy");
 
 #line default
 #line hidden
