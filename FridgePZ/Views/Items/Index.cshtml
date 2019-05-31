@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create"><button type="button" class="btn btn-secondary btn-info">Dodaj nowy produkt</button></a>
 </p>
 <div class="limiter">
     <div class="table100 ver5 m-b-110">
@@ -74,7 +74,9 @@
                         <td class="column100 column2" data-column="column2">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a asp-action="Decrease" asp-route-id="@item.ItemId"><button type="button" class="btn btn-secondary btn-danger">-</button></a>
-
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                    <a asp-action="Delete" asp-route-id="@item.ItemId"><button type="button" class="btn btn-secondary btn-danger">Usuń</button></a>
                             </div>
                         </td>
 

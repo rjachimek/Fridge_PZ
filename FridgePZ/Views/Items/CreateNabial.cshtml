@@ -1,0 +1,17 @@
+﻿@model IEnumerable<FridgePZ.Models.Itempattern>
+
+@{
+    ViewData["Title"] = "CreateNabial";
+}
+
+<div class="row m-1">
+    @foreach(var item in Model) { 
+
+        <div class="card border-primary m-1">
+            <div class="card-header">@item.Name</div>
+            <a asp-action="CreateItem" asp-route-id="@item.ItemPatternId"><img class="card-img" src="/images/@item.PhotoName" alt="Card image"></a>
+        </div>
+
+    }
+
+</div>

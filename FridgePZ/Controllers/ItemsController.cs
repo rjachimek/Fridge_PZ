@@ -72,6 +72,87 @@ namespace FridgePZ.Controllers
             }
         }
 
+        public async Task<IActionResult> Create()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> CreateNabial()
+        {
+            var itempattern = from _i in _context.Itempattern
+                              where _i.CategoryItemPatternId == 1
+                              select _i;
+
+            return View(await itempattern.ToListAsync());
+        }
+
+        public async Task<IActionResult> CreatePieczywo()
+        {
+            var itempattern = from _i in _context.Itempattern
+                              where _i.CategoryItemPatternId == 4
+                              select _i;
+
+            return View(await itempattern.ToListAsync());
+        }
+
+        public async Task<IActionResult> CreateItem(int? id)
+        {
+            if(returnUser() == null) { return RedirectToAction("Login", "Account"); }
+            Itempattern _i = await _context.Itempattern.FindAsync(id);
+            List<Shelf> _s = returnUserShelfs();
+            if (_s.Last() == null) { return RedirectToAction(nameof(Index)); }
+            Item item = new Item();
+            item.ItemPatternId = id??default;
+            DateTime itemTime = DateTime.Now;
+            decimal days = Convert.ToDecimal(_i.LongLife);
+            double elapsed = (double)days;
+            itemTime = itemTime.AddDays(elapsed);
+            item.ExpirationDate = itemTime;
+            item.NotificationId = null;
+            item.HowMuchLeft = _i.Size;
+            item.ShelfId = _s.First().ShelfId;
+            item.IsOpen = 0;
+            _context.Add(item);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Decrease(int? id)
+        {
+            decreasePortion(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            Item cur_item = _context.Item.Find(id);
+            var _item = await _context.Item.FindAsync(cur_item.ItemId);
+            _context.Item.Remove(_item);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async void decreasePortion(int? id)
+        {
+            Item cur_item = _context.Item.Find(id);
+            Itempattern pat = await _context.Itempattern.FindAsync(cur_item.ItemPatternId);
+            if (cur_item.HowMuchLeft - 125 >= 0)
+            {
+                cur_item.HowMuchLeft -= 125;
+                if (cur_item.HowMuchLeft == 0)
+                {
+                    var _item = await _context.Item.FindAsync(cur_item.ItemId);
+                    _context.Item.Remove(_item);
+                }
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                var _item = await _context.Item.FindAsync(cur_item.ItemId);
+                _context.Item.Remove(_item);
+                await _context.SaveChangesAsync();
+            }
+        }
 
         public List<Item> returnUserItems()
         {
@@ -85,6 +166,19 @@ namespace FridgePZ.Controllers
                         select _item;
             List<Item> item = query.ToList();
             return item;
+        }
+
+        public List<Shelf> returnUserShelfs()
+        {
+            User cur_user = returnUser();
+            var query = from _shelf in _context.Shelf
+                        join _storage in _context.Storage on _shelf.StorageId equals _storage.StorageId
+                        join _privilege in _context.Privilege on _storage.StorageId equals _privilege.StorageId
+                        join _user in _context.User on _privilege.UserId equals _user.UserId
+                        where cur_user.UserId == _user.UserId
+                        select _shelf;
+            List<Shelf> shelf = query.ToList();
+            return shelf;
         }
 
         public List<Item> returnItems()

@@ -1,0 +1,12 @@
+.card{
+
+    width: 220px;
+    height: 300px;
+}
+
+.card-img {
+    align-self: stretch;
+    width: 200px;
+    height: 200px;
+    
+}

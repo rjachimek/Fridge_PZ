@@ -1,10 +1,27 @@
-﻿@model FridgePZ.Models.Item
-
+﻿﻿
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+    <div class="row m-1">
+        <div class="card border-primary m-1">
+            <div class="card-header">Mięso</div>
+            <a href="http://google.com"><img class="card-img" width="200" height="200" src="/images/mieso.jpg"></a>
+        </div>
+
+        <div class="card border-primary m-1">
+            <div class="card-header">Nabiał</div>
+            <a asp-action="CreateNabial" asp-controller="Items"><img class="card-img"  width="200" height="200" src="/images/nabial.jpg"></a>
+        </div>
+
+        <div class="card border-primary m-1" height="200" width="200">
+            <div class="card-header">Pieczywo</div>
+            <a asp-action="CreatePieczywo" asp-controller="Items><img class="card-img"  width="200" height="200" src="~/images/Chleb zwykly.jpg"></a>
+        </div>
+
+    </div>
+
+<!-- <h1>Create</h1>
 
 <h4>Item</h4>
 <hr />
@@ -48,7 +65,7 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div> -->
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

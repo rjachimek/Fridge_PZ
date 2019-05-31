@@ -13243,11 +13243,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Maric\\Desktop\\Nowy folder (11)\\Fridge_PZ\\FridgePZ\\FridgePZ.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\FridgeWspolne\\fridge-lebrenzi\\Fridge_PZ\\FridgePZ\\FridgePZ.csproj",
       "projectName": "FridgePZ",
-      "projectPath": "C:\\Users\\Maric\\Desktop\\Nowy folder (11)\\Fridge_PZ\\FridgePZ\\FridgePZ.csproj",
-      "packagesPath": "C:\\Users\\Maric\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Maric\\Desktop\\Nowy folder (11)\\Fridge_PZ\\FridgePZ\\obj\\",
+      "projectPath": "C:\\Users\\Lenovo\\Documents\\FridgeWspolne\\fridge-lebrenzi\\Fridge_PZ\\FridgePZ\\FridgePZ.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lenovo\\Documents\\FridgeWspolne\\fridge-lebrenzi\\Fridge_PZ\\FridgePZ\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
