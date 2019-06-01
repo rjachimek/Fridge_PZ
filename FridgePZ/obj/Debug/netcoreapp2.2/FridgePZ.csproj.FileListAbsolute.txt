@@ -350,3 +350,11 @@ C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\obj\D
 C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.dll
 C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.pdb
 C:\Users\Lenovo\Documents\FridgeWspolne\fridge-lebrenzi\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\Nowy folder (19)\Nowy folder\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.csprojAssemblyReference.cache
+C:\Users\LENOVO\Desktop\Nowy folder (19)\Nowy folder\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\Nowy folder (19)\Nowy folder\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.RazorAssemblyInfo.cache
+C:\Users\LENOVO\Desktop\Nowy folder (19)\Nowy folder\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.RazorAssemblyInfo.cs
+C:\Users\LENOVO\Desktop\Nowy folder (19)\Nowy folder\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.AssemblyInfoInputs.cache
+C:\Users\LENOVO\Desktop\Nowy folder (19)\Nowy folder\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.AssemblyInfo.cs
+C:\Users\LENOVO\Desktop\Nowy folder (19)\Nowy folder\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.dll
+C:\Users\LENOVO\Desktop\Nowy folder (19)\Nowy folder\Fridge_PZ\FridgePZ\obj\Debug\netcoreapp2.2\FridgePZ.pdb

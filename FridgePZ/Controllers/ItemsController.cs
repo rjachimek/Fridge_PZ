@@ -239,38 +239,9 @@ namespace FridgePZ.Controllers
         }
 
 
-        public async Task<IActionResult> Decrease(int? id)
-        {
-            decreasePortion(id);
-            return RedirectToAction(nameof(Index));
-        }
 
 
-        public async void decreasePortion(int? id)
-        {
-            Item cur_item = _context.Item.Find(id);
-            Itempattern pat = await _context.Itempattern.FindAsync(cur_item.ItemPatternId);
-            if (cur_item.HowMuchLeft - 125 >= 0)
-            {
-                cur_item.HowMuchLeft -= 125;
-                if(cur_item.HowMuchLeft == 0)
-                {
-                    var _item = await _context.Item.FindAsync(cur_item.ItemId);
-                    _context.Item.Remove(_item);
-                }
-                await _context.SaveChangesAsync();
-            }
-            else
-            {
-                var _item = await _context.Item.FindAsync(cur_item.ItemId);
-                _context.Item.Remove(_item);
-                await _context.SaveChangesAsync();
-            }
-          
-        }
-
-
-        public IActionResult Create()
+/*        public IActionResult Create()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -305,7 +276,7 @@ namespace FridgePZ.Controllers
             ViewData["NotificationId"] = new SelectList(_context.Notificationtype, "NotificationId", "Type", item.NotificationId);
             ViewData["ShelfId"] = new SelectList(_context.Shelf, "ShelfId", "Name", item.ShelfId);
             return View(item);
-        }
+        }*/
 
         // GET: Items1/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -365,7 +336,7 @@ namespace FridgePZ.Controllers
         }
 
         // GET: Items1/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        /*public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -394,7 +365,7 @@ namespace FridgePZ.Controllers
             _context.Item.Remove(item);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
     }
 
